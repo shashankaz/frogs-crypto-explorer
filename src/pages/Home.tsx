@@ -5,12 +5,7 @@ import { Bookmark, Search } from "lucide-react";
 import Loading from "../components/Loading";
 import Pagination from "../components/Pagination";
 import SparklineChart from "../components/SparklineChart";
-
-interface Coin {
-  id: string;
-  name: string;
-  symbol: string;
-}
+import { Coin } from "../types/types";
 
 const Home = () => {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -49,7 +44,7 @@ const Home = () => {
 
     try {
       const response = await fetch(
-        "https://api.coingecko.com/api/v3/coins/list"
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1"
       );
       const data = await response.json();
       setCoins(data);
@@ -95,7 +90,7 @@ const Home = () => {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <h1 className="text-4xl font-bold mb-4">Frogs Crypto Explorer</h1>
-      <p className="text-gray-600 mb-6 max-w-2xl">
+      <p className="text-gray-600 mb-8 max-w-2xl">
         Discover and explore thousands of cryptocurrencies in one place! Easily
         search for any coin, view details, and bookmark your favorites for quick
         access anytime.
@@ -127,12 +122,19 @@ const Home = () => {
             >
               <Link
                 to={`/coin/${coin.id}/?lang=en`}
-                className="mb-2 block flex-1"
+                className="mb-2 flex-1 flex items-center gap-3"
               >
-                <h2 className="text-lg font-semibold">{coin.name}</h2>
-                <p className="text-gray-500 text-sm">
-                  {coin.symbol.toUpperCase()}
-                </p>
+                <img
+                  src={coin.image}
+                  alt={coin.name}
+                  className="w-8 h-8 rounded-full border border-gray-200"
+                />
+                <div>
+                  <h2 className="text-lg font-semibold">{coin.name}</h2>
+                  <p className="text-gray-500 text-sm">
+                    {coin.symbol.toUpperCase()}
+                  </p>
+                </div>
               </Link>
               <button
                 onClick={(e) => {

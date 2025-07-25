@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router";
+import { Helmet } from "react-helmet";
 import {
   LineChart,
   Line,
@@ -85,6 +86,14 @@ const CoinDetail = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
+      <Helmet>
+        <title>{name} - Frogs Crypto Explorer</title>
+        <meta
+          name="description"
+          content={`Learn more about ${name}, a cryptocurrency on Frogs Crypto Explorer.`}
+        />
+      </Helmet>
+
       <div className="flex items-center gap-4 mb-4">
         <img src={image?.large} alt={name} className="w-16 h-16" />
         <h1 className="text-2xl font-bold">

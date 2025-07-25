@@ -1,6 +1,16 @@
+import { Helmet } from "react-helmet";
+
 const About = () => {
   return (
     <div className="max-w-3xl mx-auto px-6 py-12 text-center">
+      <Helmet>
+        <title>About Us - Frogs Crypto Explorer</title>
+        <meta
+          name="description"
+          content="Learn more about Frogs Crypto Explorer, a platform for exploring cryptocurrency data."
+        />
+      </Helmet>
+
       <h1 className="text-4xl font-bold mb-4">About Us</h1>
       <p className="text-gray-600 mb-6 text-lg">
         Welcome to{" "}

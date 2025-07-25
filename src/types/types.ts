@@ -117,3 +117,49 @@ export interface CoinDetailType {
     };
   };
 }
+
+export interface Coin {
+  id: string;
+  name: string;
+  symbol: string;
+  image: string;
+}
+
+export interface MarketCoin {
+  id: string;
+  name: string;
+  symbol: string;
+  image: string;
+  current_price: number;
+  market_cap_rank: number;
+  price_change_percentage_24h: number | null;
+  market_cap: number;
+  total_volume: number;
+}
+
+export interface GlobalStats {
+  active_cryptocurrencies: number;
+  upcoming_icos: number;
+  ongoing_icos: number;
+  ended_icos: number;
+  markets: number;
+  total_market_cap: Record<string, number>;
+  total_volume: Record<string, number>;
+  market_cap_percentage: Record<string, number>;
+  market_cap_change_percentage_24h_usd: number;
+  updated_at: number;
+  active_exchanges: number;
+}
+
+export interface TrendingCoin {
+  item: {
+    id: string;
+    name: string;
+    symbol: string;
+    market_cap_rank: number;
+    score: number;
+    thumb: string;
+    small: string;
+    large: string;
+  };
+}
