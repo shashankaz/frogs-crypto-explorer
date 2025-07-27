@@ -29,7 +29,7 @@ const Learn = () => {
         <p className="text-gray-700 leading-relaxed">
           <strong>Ethereum</strong> goes beyond currency — it&apos;s a smart
           contract platform enabling decentralized apps (dApps) and tokens like
-          NFTs. It's the foundation of DeFi and Web3.
+          NFTs. It&apos;s the foundation of DeFi and Web3.
         </p>
       </section>
 

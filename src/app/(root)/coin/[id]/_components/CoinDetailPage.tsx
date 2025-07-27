@@ -399,19 +399,31 @@ const CoinDetailPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {tickers?.map((t: any, i: number) => (
-                  <tr key={i}>
-                    <td className="border p-2">{t.market?.name ?? "N/A"}</td>
-                    <td className="border p-2">
-                      {t.base}/{t.target}
-                    </td>
-                    <td className="border p-2">{t.last ?? "N/A"}</td>
-                    <td className="border p-2">
-                      {t.volume?.toFixed(2) ?? "N/A"}
-                    </td>
-                    <td className="border p-2">{t.trust_score ?? "N/A"}</td>
-                  </tr>
-                ))}
+                {tickers?.map(
+                  (
+                    t: {
+                      market?: { name?: string };
+                      base: string;
+                      target: string;
+                      last?: number;
+                      volume?: number;
+                      trust_score?: string;
+                    },
+                    i: number
+                  ) => (
+                    <tr key={i}>
+                      <td className="border p-2">{t.market?.name ?? "N/A"}</td>
+                      <td className="border p-2">
+                        {t.base}/{t.target}
+                      </td>
+                      <td className="border p-2">{t.last ?? "N/A"}</td>
+                      <td className="border p-2">
+                        {t.volume?.toFixed(2) ?? "N/A"}
+                      </td>
+                      <td className="border p-2">{t.trust_score ?? "N/A"}</td>
+                    </tr>
+                  )
+                )}
               </tbody>
             </table>
           </div>
